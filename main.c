@@ -4,7 +4,9 @@
 
 int main(int argc, char const *argv[]) {
 
-	gif_t orbit_gif = gif_from_file("./gifs/orbit.txt", 250);
+	gif_t fist_bump_gif = gif_from_file("./gifs/fist_bump.txt", 100);
+	gif_t orbit_gif = gif_from_file("./gifs/orbit.txt", 1);
+	// render_gif(fist_bump_gif);
 	render_gif(orbit_gif);
 
 	gif_t ship_in_the_sea = gif_create(LONG_GIF_LEN, 200);

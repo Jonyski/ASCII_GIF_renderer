@@ -81,13 +81,15 @@ gif_t gif_from_file(char *path, long int dt) {
 		frame_t *new_frame = malloc(sizeof(frame_t));
 		*new_frame = frame_create(frame_height, frame_width);
 
-		for(int j = 0; j < frame_height; j++){
+		char empty_trash[2]; // because there is aways an empty line before each frame
+		fgets(empty_trash, sizeof(empty_trash), file);
+
+		for(int j = 0; j < frame_height; j++) {
 
 			// * 4 because of multi-byte chars or whatever 
 			// (I tried using wchar_t but it is too broken, sorry)
 			char line[frame_width * 4 + 1];
 			fgets(line, sizeof(line), file);
-			if(j == 0) continue; // because every j-th line is empty
 			frame_add_line(*new_frame, line);
 		}
 		gif_add_frame(&gif, *new_frame);
