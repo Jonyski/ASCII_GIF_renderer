@@ -12,5 +12,9 @@ int main(int argc, char const *argv[]) {
 	render_gif(fist_bump);
 	render_gif(ship_in_the_sea);
 
+	free_gif(&orbit);
+	free_gif(&fist_bump);
+	free_gif(&ship_in_the_sea);
+
 	return 0;
 }

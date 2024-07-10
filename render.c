@@ -4,10 +4,10 @@
 #include <termios.h>
 #include <unistd.h>
 #include <ctype.h>
+#include "render.h"
 #include "GIFs.h"
 
 volatile int interrupt = 0; // dictates when the gif stops
-void *check_keypress(void *arg);
 
 void render_gif(gif_t gif) {
 	interrupt = 0;

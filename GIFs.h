@@ -10,16 +10,16 @@
 typedef char* img_t;
 
 typedef struct {
-	char *img;
 	int height;
 	int width;
+	char *img;
 } frame_t; // frames are strings
 
 typedef struct {
-	frame_t *frames; // array of frames
-	int next_frame; // offset to the next empty frame
-	int length; // number of frames
 	long int dt; // time in ms between each frame
+	int length; // number of frames
+	int next_frame; // offset to the next empty frame
+	frame_t *frames; // array of frames
 } gif_t;
 
 frame_t frame_create(int height, int width); // allocates a height X width sized string and returns a frame
@@ -27,5 +27,7 @@ void frame_add_line(frame_t frame, char *line); // adds content to a frame line 
 gif_t gif_create(int len, long int dt); // creates an empty gif
 void gif_add_frame(gif_t *gif, frame_t frame); // adds a frame to the frames array
 gif_t gif_from_file(char *path, long int dt); // creates a gif based on a file in a specific format
+void free_frames(gif_t *gif);
+void free_gif(gif_t *gif);
 
 #endif

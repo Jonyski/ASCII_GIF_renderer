@@ -93,8 +93,19 @@ gif_t gif_from_file(char *path, long int dt) {
 			frame_add_line(*new_frame, line);
 		}
 		gif_add_frame(&gif, *new_frame);
+		free(new_frame);
 	}
 	fclose(file);
 	return gif;
+}
 
+void free_frames(gif_t *gif) {
+	for(int i = 0; i < gif->length; i++) {
+		free(gif->frames[i].img);
+	}
+}
+
+void free_gif(gif_t *gif) {
+	free_frames(gif);
+	free(gif->frames);
 }
