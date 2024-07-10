@@ -9,8 +9,8 @@ int main(int argc, char const *argv[]) {
 	gif_t ship_in_the_sea = gif_from_file("./gifs/ship_in_the_sea.txt", 200);
 	
 	render_gif(orbit);
-	// render_gif(fist_bump);
-	// render_gif(ship_in_the_sea);
+	render_gif(fist_bump);
+	render_gif(ship_in_the_sea);
 
 	return 0;
 }

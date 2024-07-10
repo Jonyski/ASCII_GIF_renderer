@@ -10,6 +10,7 @@ volatile int interrupt = 0; // dictates when the gif stops
 void *check_keypress(void *arg);
 
 void render_gif(gif_t gif) {
+	interrupt = 0;
 	pthread_t check_interrupt;
 	pthread_create(&check_interrupt, NULL, check_keypress, NULL);
 
